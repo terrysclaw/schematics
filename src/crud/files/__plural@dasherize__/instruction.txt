@@ -1,0 +1,17 @@
+## add to app\core\crud\index.ts
+export * from 'app/modules/<%= path %>/<%= dasherize(plural) %>/<%= dasherize(singular) %>.service';
+
+## add to app\core\models\index.ts
+export * from 'app/modules/<%= path %>/<%= dasherize(plural) %>/<%= dasherize(singular) %>.model';
+
+## add to app\mock-api\common\navigation\data.ts
+{
+    id: 'admin.<path>.<%= dasherize(plural) %>',
+    title: '<title>',
+    type: 'basic',
+    icon: 'heroicons_outline:home',
+    link: '/<%= path %>/<%= dasherize(plural) %>'
+}
+
+## add to app\app.routing.ts
+{ path: '<%= dasherize(plural) %>', loadChildren: () => import('app/modules/<%= path %>/<%= dasherize(plural) %>/<%= dasherize(plural) %>.module').then(m => m.<%= classify(plural) %>Module) },
