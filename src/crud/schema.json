@@ -5,27 +5,27 @@
     "type": "object",
     "description": "Say hello to someone",
     "properties": {
-      "plural": {
-        "type": "string",
-        "description": "The plural name of the module",
-        "$default": {
-          "$source": "argv",
-          "index": 0
+        "plural": {
+            "type": "string",
+            "description": "The plural name of the module",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "The plural name of the module?"
         },
-        "x-prompt": "The plural name of the module?"
-      },
-      "singular": {
-        "type": "string",
-        "description": "The singular name of the module",
-        "$default": {
-          "$source": "argv",
-          "index": 1
-        },
-        "x-prompt": "The singular name of the module?"
-      }
+        "singular": {
+            "type": "string",
+            "description": "The singular name of the module",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            },
+            "x-prompt": "The singular name of the module?"
+        }
     },
     "required": [
-      "plural",
-      "singular"
+        "plural",
+        "singular"
     ]
-  }
+}
