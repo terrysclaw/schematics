@@ -41,6 +41,7 @@ export class <%= classify(singular) %>Component extends AbstractFormComponent<<%
                     error: (e) => this._handleError(e)
                 });
         } else {
+            this._item.next(null);
             this.buildItemForm({});
             this.editMode = true;
         }
