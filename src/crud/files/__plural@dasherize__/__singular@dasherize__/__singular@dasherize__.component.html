@@ -66,6 +66,14 @@
                             <div class="max-w-none ml-6 prose prose-sm" [innerHTML]="item.notes"></div>
                         </div>
                     </ng-container>
+
+                    <!-- Audit Trail -->
+                    <div class="mt-6 flex w-full">
+                        <mat-icon [svgIcon]="'heroicons_outline:information-circle'"></mat-icon>
+                        <div class="ml-6 leading-6">
+                            <app-audit-trail [item]="item"></app-audit-trail>
+                        </div>
+                    </div>
                 </ng-container>
             </div>
         </div>
