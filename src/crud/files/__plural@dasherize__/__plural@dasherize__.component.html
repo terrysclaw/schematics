@@ -40,7 +40,6 @@
                 </div>
 
                 <div class="flex flex-col flex-auto justify-between">
-                    <!-- <ng-container *ngIf="!(loading$ | async); else loading"> -->
                     <ng-container *ngIf="(count$ | async) > 0; else noRecords">
 
                         <div class="flex items-center w-full p-2">
