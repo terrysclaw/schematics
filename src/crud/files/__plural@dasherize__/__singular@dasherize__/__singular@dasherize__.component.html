@@ -86,7 +86,7 @@
                 <form [formGroup]="itemForm">
                     <!-- Name -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field class="w-full">
                             <mat-label>Name</mat-label>
                             <input matInput [formControlName]="'name'" [placeholder]="'Name'">
                             <mat-error *ngIf="itemForm.get('name').hasError('required')">
