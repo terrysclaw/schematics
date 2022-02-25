@@ -3,8 +3,8 @@
     <ng-container *ngIf="editMode">
         <app-form-edit-toolbar class="sticky top-0 z-50 w-full shadow-md" (saveClicked)="submit()"
             (cancelClicked)="toggleEditMode(false)" (deleteClicked)="deleteItem()" [loading]="loading$ | async"
-            [invalid]="itemForm.invalid" [dirty]="itemForm.dirty"
-            [allowPut]="(allowPut$ | async) || (!_id)" [allowDelete]="allowDelete$ | async">
+            [invalid]="itemForm.invalid" [dirty]="itemForm.dirty" [allowPut]="(allowPut$ | async) || (!_id)"
+            [allowDelete]="allowDelete$ | async">
         </app-form-edit-toolbar>
     </ng-container>
 
@@ -49,29 +49,29 @@
                     <!-- Name -->
                     <div class="mt-3 text-4xl font-bold truncate">{{item.name}}</div>
 
-                    <div class="flex flex-col mt-4 pt-6 border-t space-y-8"></div>
+                    <div class="flex flex-col mt-4 pt-6 border-t space-y-8">
+                        <!-- Name -->
+                        <ng-container *ngIf="item.name">
+                            <div class="flex sm:items-center">
+                                <mat-icon [svgIcon]="'heroicons_outline:bookmark-alt'"></mat-icon>
+                                <div class="ml-6 leading-6">{{item.name}}</div>
+                            </div>
+                        </ng-container>
 
-                    <!-- Name -->
-                    <ng-container *ngIf="item.name">
-                        <div class="flex sm:items-center">
-                            <mat-icon [svgIcon]="'heroicons_outline:bookmark-alt'"></mat-icon>
-                            <div class="ml-6 leading-6">{{item.name}}</div>
-                        </div>
-                    </ng-container>
+                        <!-- Notes -->
+                        <ng-container *ngIf="item.notes">
+                            <div class="flex">
+                                <mat-icon [svgIcon]="'heroicons_outline:menu-alt-2'"></mat-icon>
+                                <div class="max-w-none ml-6 prose prose-sm" [innerHTML]="item.notes"></div>
+                            </div>
+                        </ng-container>
 
-                    <!-- Notes -->
-                    <ng-container *ngIf="item.notes">
-                        <div class="flex w-full mt-6">
-                            <mat-icon [svgIcon]="'heroicons_outline:menu-alt-2'"></mat-icon>
-                            <div class="max-w-none ml-6 prose prose-sm" [innerHTML]="item.notes"></div>
-                        </div>
-                    </ng-container>
-
-                    <!-- Audit Trail -->
-                    <div class="mt-6 flex w-full">
-                        <mat-icon [svgIcon]="'heroicons_outline:information-circle'"></mat-icon>
-                        <div class="ml-6 leading-6">
-                            <app-audit-trail [item]="item"></app-audit-trail>
+                        <!-- Audit Trail -->
+                        <div class="flex">
+                            <mat-icon [svgIcon]="'heroicons_outline:information-circle'"></mat-icon>
+                            <div class="ml-6 leading-6">
+                                <app-audit-trail [item]="item"></app-audit-trail>
+                            </div>
                         </div>
                     </div>
                 </ng-container>

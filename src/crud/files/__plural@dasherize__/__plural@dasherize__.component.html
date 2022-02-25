@@ -14,7 +14,9 @@
                 <div class="flex flex-col sm:flex-row md:flex-col flex-auto justify-between py-8 px-6 md:px-8 border-b">
                     <!-- Title -->
                     <div>
-                        <div class="text-4xl font-extrabold tracking-tight leading-none"><%= classify(plural) %></div>
+                        <div class="text-4xl font-extrabold tracking-tight leading-none">
+                            <%= classify(plural) %>
+                        </div>
                         <div class="ml-0.5 font-medium text-secondary">
                             <app-total-count [count]="count$ | async"></app-total-count>
                         </div>
@@ -63,19 +65,35 @@
                                 <a class="z-20 flex items-center px-6 py-4 md:px-8 cursor-pointer border-b"
                                     [ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedItem || selectedItem.id !== item.id,
                                                 'bg-primary-50 dark:bg-hover': selectedItem && selectedItem.id === item.id}" (click)="selectedItem = item" [routerLink]="['./', item.id]">
-                                    <div
-                                        class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden">
+
+                                    <!-- left -->
+                                    <div class="relative flex flex-0 items-center justify-center w-10 h-10">
                                         <div
                                             class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
                                             {{item.id}}
                                         </div>
                                     </div>
 
-                                    <!-- name -->
+                                    <!-- center -->
                                     <div class="min-w-0 ml-4">
-                                        <div class="font-medium leading-5 truncate">
-                                            {{item.name}}
+                                        <div class="font-medium leading-5 truncate">{{item.name}}</div>
+                                        <ng-container *ngIf="false">
+                                            <div class="leading-5 truncate text-secondary">
+                                                <!-- text here -->
+                                            </div>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- right -->
+                                    <div class="flex flex-col items-end self-start ml-auto pl-2">
+                                        <div class="text-sm leading-5 text-secondary">
+                                            <!-- text here -->
                                         </div>
+                                        <ng-container *ngIf="false">
+                                            <mat-icon class="icon-size-5 text-hint"
+                                                [svgIcon]="'heroicons_solid:volume-off'"></mat-icon>
+                                            <!-- or text here -->
+                                        </ng-container>
                                     </div>
                                 </a>
                             </ng-container>
