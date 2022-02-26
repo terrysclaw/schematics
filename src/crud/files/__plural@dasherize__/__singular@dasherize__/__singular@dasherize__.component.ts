@@ -38,15 +38,15 @@ export class <%= classify(singular) %>Component extends AbstractFormComponent<<%
 
                         this.buildItemForm(response.body);
                     },
-                    error: (e) => this._handleError(e)
+                    error: (e) => this._handleError(e),
+                    complete: () => this._changeDetectorRef.markForCheck()
                 });
         } else {
             this._item.next(null);
             this.buildItemForm({});
             this.editMode = true;
         }
-
-        this._changeDetectorRef.markForCheck();
+       
     }
 
     buildItemForm(item: any): void {
