@@ -33,8 +33,7 @@ export class <%= classify(plural) %>Component extends AbstractListComponent<<%= 
             PageRequest.from(
                 (this._paginator?.pageIndex || 0),
                 (this._paginator?.pageSize || this.pageSize),
-                (this._sort?.active || 'id'),
-                (this._sort?.direction || 'desc'),
+                (this._sort?.active ? (this._sort.direction == 'desc' ? '-' : '') + this._sort?.active : '-id'),
                 (this.searchInputControl?.value || '')
             ))
             .pipe(takeUntil(this._unsubscribeAll))
