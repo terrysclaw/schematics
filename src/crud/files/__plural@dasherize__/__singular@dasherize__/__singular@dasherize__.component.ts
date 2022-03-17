@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Injector } from '@angular/core';
 import { Validators } from '@angular/forms';
 
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs';
 import * as moment from 'moment';
 
 import { AbstractFormComponent } from 'app/shared/components/abstract-form.component';
