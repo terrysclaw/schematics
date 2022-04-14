@@ -12,7 +12,7 @@ import { <%= classify(singular) %> } from 'app/core/models';
 export class <%= classify(singular) %>Service extends GenericCrudService<<%= classify(singular) %>, number> {
 
     constructor(private http: HttpClient) {
-        super(http, `${environment.apiUrl}/<%= underscore(plural) %>`);
+        super(http, `${environment.apiUrl}/<%= dasherize(plural) %>`);
     }
 
 }
