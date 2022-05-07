@@ -63,6 +63,16 @@
                     </div>
 
                     <div class="flex flex-col mt-4 pt-6 border-t space-y-8">
+                        <!-- deprecated -->
+                        <div class="flex">
+                            <mat-icon
+                                [svgIcon]="item.deprecated ? 'heroicons_outline:pause' : 'heroicons_outline:refresh'">
+                            </mat-icon>
+                            <div class="ml-6 leading-6">
+                                <span>{{item.deprecated ? '已棄用' : '使用中'}}</span>
+                            </div>
+                        </div>
+
                         <!-- Notes -->
                         <ng-container *ngIf="item.notes">
                             <div class="flex">
