@@ -1,16 +1,26 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Injector } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Validators } from '@angular/forms';
+
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { takeUntil } from 'rxjs';
 import * as moment from 'moment';
 
+import { SharedModule } from 'app/shared/shared.module';
 import { AbstractFormComponent } from 'app/shared/components/abstract-form.component';
-import { <%= classify(singular) %> } from 'app/core/models';
-import { <%= classify(singular) %>Service } from 'app/core/crud';
+import { <%= classify(singular) %> } from './<%= dasherize(singular) %>.model';
+import { <%= classify(singular) %>Service } from './<%= dasherize(singular) %>.service';
 
 
 @Component({
-    selector: 'app-<%= dasherize(singular) %>',
+    standalone: true,
+    imports: [
+        RouterModule,
+        TranslocoModule,
+        SharedModule
+    ],
+    selector: 'app-<%= path %>-<%= dasherize(singular) %>',
     templateUrl: './<%= dasherize(singular) %>.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush

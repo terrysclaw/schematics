@@ -1,15 +1,25 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Injector } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { takeUntil } from 'rxjs';
 
+import { TranslocoModule } from '@ngneat/transloco';
 import { fuseAnimations } from '@fuse/animations';
 
+import { SharedModule } from 'app/shared/shared.module';
 import { AbstractListComponent } from 'app/shared/components/abstract-list.component';
-import { PageRequest, <%= classify(singular) %> } from 'app/core/models';
-import { <%= classify(singular) %>Service } from 'app/core/crud';
+import { PageRequest } from 'app/core/models';
+import { <%= classify(singular) %> } from './<%= dasherize(singular) %>.model';
+import { <%= classify(singular) %>Service } from './<%= dasherize(singular) %>.service';
 
 
 @Component({
-    selector: 'app-<%= dasherize(plural) %>',
+    standalone: true,
+    imports: [
+        RouterModule,
+        TranslocoModule,
+        SharedModule
+    ],
+    selector: 'app-<%= path %>-<%= dasherize(plural) %>',
     templateUrl: './<%= dasherize(plural) %>.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,

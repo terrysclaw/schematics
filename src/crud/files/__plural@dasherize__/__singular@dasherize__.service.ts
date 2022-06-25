@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'environments/environment';
 import { GenericCrudService } from 'app/core/crud';
-import { <%= classify(singular) %> } from 'app/core/models';
+import { <%= classify(singular) %> } from './<%= dasherize(singular) %>.model';
 
 
 @Injectable({
