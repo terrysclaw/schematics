@@ -9,8 +9,8 @@ import * as moment from 'moment';
 
 import { SharedModule } from 'app/shared/shared.module';
 import { AbstractFormComponent } from 'app/shared/components/abstract-form.component';
-import { <%= classify(singular) %> } from './<%= dasherize(singular) %>.model';
-import { <%= classify(singular) %>Service } from './<%= dasherize(singular) %>.service';
+import { <%= classify(singular) %> } from '../<%= dasherize(singular) %>.model';
+import { <%= classify(singular) %>Service } from '../<%= dasherize(singular) %>.service';
 
 
 @Component({
