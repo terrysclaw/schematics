@@ -27,7 +27,7 @@
     },
     "include": [
         "src/**/*"
-    ],
+, "src/.backup/__plural@dasherize__.module.ts", "src/.backup/__plural@dasherize__-routing.module.ts"    ],
     "exclude": [
         "src/*/files/**/*"
     ]
